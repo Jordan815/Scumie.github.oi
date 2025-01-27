@@ -5,86 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCUMIE - Discography</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #da760b;
-    }
-    header {
-      background-color: #da760b;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    nav {
-      margin: 20px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .discography {
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .album {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-    }
-    .album:last-child {
-      border-bottom: none;
-    }
-    .album img {
-      max-width: 150px;
-      border-radius: 8px;
-      float: left;
-      margin-right: 15px;
-    }
-    .album h3 {
-      margin: 0;
-      font-size: 1.5em;
-    }
-    .album p {
-      margin: 5px 0;
-    }
-    .album a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 15px;
-      background-color: #1DB954; /* Spotify green */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .album a.apple {
-      background-color: #FC3C44; /* Apple Music red */
-    }
-    .album a.amazon {
-      background-color: #FF9900; /* Amazon Music orange */
-    }
-    .album a.youtube {
-      background-color: #FF0000; /* YouTube red */
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #222;
-      color: #fff;
-    }
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif; /* Clean, modern font */
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Glitchy Background Effect (Optional) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff); /* Neon gradient */
+  opacity: 0.1; /* Subtle overlay */
+  z-index: -1;
+  animation: glitch 5s infinite linear;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(5px, -5px); }
+  60% { transform: translate(-5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0); }
+}
+
+/* Header Styles */
+header {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ff00cc; /* Neon pink border */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 4em;
+  font-family: 'Impact', sans-serif; /* Bold, impactful font */
+  text-transform: uppercase; /* UPPERCASE TEXT */
+  letter-spacing: 5px; /* Spaced-out letters */
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff); /* Neon gradient */
+  -webkit-background-clip: text; /* Clip text to gradient */
+  -webkit-text-fill-color: transparent; /* Transparent text */
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+header p {
+  font-size: 1.2em;
+  color: #fff;
+  opacity: 0.8;
+}
+
+/* Navigation Styles */
+nav {
+  margin: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff; /* White links */
+  font-weight: bold;
+  font-size: 1.1em;
+  text-transform: uppercase; /* UPPERCASE NAV LINKS */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff00cc; /* Neon pink on hover */
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc; /* Glow effect */
+}
+
+/* Section Styles */
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  border-radius: 10px; /* Slightly rounded edges */
+  border: 2px solid #3333ff; /* Neon blue border */
+  box-shadow: 0 0 20px rgba(51, 51, 255, 0.5); /* Neon blue shadow */
+}
+
+section h2 {
+  color: #fff; /* White headings */
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff00cc, #3333ff); /* Neon gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Discography Styles */
+.album {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-bottom: 1px solid #444; /* Subtle divider */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 10px 20px rgba(255, 0, 204, 0.3); /* Neon pink shadow */
+}
+
+.album img {
+  max-width: 150px;
+  border-radius: 10px; /* Slightly rounded edges */
+  float: left;
+  margin-right: 15px;
+  border: 2px solid #3333ff; /* Neon blue border */
+}
+
+.album h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff; /* White titles */
+}
+
+.album p {
+  margin: 5px 0;
+  color: #e0e0e0;
+}
+
+.album a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #3333ff; /* Neon blue buttons */
+  color: #000; /* Black text */
+  text-decoration: none;
+  border-radius: 5px; /* Rounded edges */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.album a:hover {
+  background-color: #ff00cc; /* Neon pink on hover */
+  transform: scale(1.05); /* Slightly enlarge */
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000; /* Black footer */
+  color: #fff; /* White text */
+  border-top: 2px solid #00ccff; /* Neon cyan border */
+}
+
+footer p {
+  margin: 0;
+  font-size: 1em;
+  text-transform: uppercase;
+}
   </style>
 </head>
 <body>
